@@ -2,8 +2,8 @@
 
 Definition of Done: see README.md
 
-| ID | User Story | Priority | Points | Status | Justification |
-|----|------------|----------|--------|--------| ------------- |
+| ID | User Story | Priority | Points | Status | Justification | Notes |
+|----|------------|----------|--------|--------| ------------- | ----- |
 | US-01 | As a visitor, I want to register an account... | Hi
 gh | 3 | Backlog |
 | US-02 | As a registered user, I want to log in... | High |
