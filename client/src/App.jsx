@@ -8,7 +8,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <NavBar />
-      <main className="mx-auto max-w-2xl px-4 py-8">
+      <main className="w-full px-4 py-6 md:mx-auto md:max-w-2xl md:px-6 md:py-8">
         <Routes>
           <Route path="/" element={<Feed />} />
           <Route path="/write" element={<PostEditor />} />
