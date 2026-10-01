@@ -8,6 +8,7 @@ class EmailAlreadyRegisteredError extends Error {}
 class WeakPasswordError extends Error {}
 class InvalidCredentialsError extends Error {}
 const MIN_PASSWORD_LENGTH = 8;
+const BCRYPT_COST_FACTOR = 10;
 
 export const AuthService = {
   async register({ email, displayName, password }) {
@@ -17,7 +18,7 @@ export const AuthService = {
     if (await UserRepository.findByEmail(email)) throw new EmailAlreadyRegisteredError();
     if (password.length < MIN_PASSWORD_LENGTH) throw new WeakPasswordError();
     let user;
-    try { user = await UserRepository.create({ email, displayName, passwordHash: await bcrypt.hash(password, 10) }); }
+    try { user = await UserRepository.create({ email, displayName, passwordHash: await bcrypt.hash(password, BCRYPT_COST_FACTOR) }); }
     catch { throw new EmailAlreadyRegisteredError(); }
     return { user: presentUser(user), ...TokenService.issueTokens(user) };
   },
