@@ -66,8 +66,11 @@ The server's integration tests use a separate `inkwell_test` database. Create an
 ```bash
 docker exec inkwell-postgres psql -U inkwell -d inkwell_dev -c "CREATE DATABASE inkwell_test;"
 cd server
+cp .env.example .env.test
 DATABASE_URL="postgresql://inkwell:inkwell@localhost:5432/inkwell_test" npx prisma migrate deploy
 ```
+
+Edit `server/.env.test` so that `DATABASE_URL` uses `inkwell_test` instead of `inkwell_dev` before running `npm test`.
 
 Run each suite:
 
