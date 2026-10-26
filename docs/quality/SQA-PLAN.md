@@ -18,7 +18,9 @@ Testing practices will be expanded in Lectures 12-14.
 - Unit tests: Services and Repositories (Jest) - ACTIVE as of Lecture 12.
 - Integration tests: Routes -> Services -> Repositories, real test DB (Supertest) - ACTIVE as of Lecture 13.
 - Component tests: React components (RTL) - ACTIVE as of Lecture 13.
-- End-to-end tests: critical user flows (Playwright) - starting Lecture 14.
+- End-to-end tests: critical user flows across mobile, tablet, and desktop viewports (Playwright) - ACTIVE as of Lecture 14.
+- Automated accessibility checks: axe-core scan of key pages - ACTIVE as of Lecture 14.
+- Documentation verification: README setup instructions - ACTIVE as of Lecture 14.
 
 ## Defect Tracking
 
