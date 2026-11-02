@@ -1,0 +1,12 @@
+import { afterAll, beforeEach, expect, test } from "@jest/globals";
+import request from "supertest";
+import { app } from "../../app.js";
+import { prisma } from "../../db/client.js";
+import { createTestPost, createTestUser, resetDatabase, tokenFor } from "../../test-utils/fixtures.js";
+beforeEach(async () => { await resetDatabase(); });
+afterAll(async () => { await prisma.$disconnect(); });
+test("a user cannot delete another user's post (A01 regression test)", async () => {
+  const owner = await createTestUser(); const attacker = await createTestUser(); const post = await createTestPost({ authorId: owner.id });
+  const res = await request(app).delete(`/api/posts/${post.id}`).set("Authorization", `Bearer ${tokenFor(attacker)}`);
+  expect(res.status).toBe(403);
+});
