@@ -27,7 +27,7 @@ for (const { name, viewport } of viewports) {
       await page.getByRole("button", { name: "Log In" }).click();
       await expect(page).toHaveURL("/");
 
-      await page.getByRole("link", { name: "Write a post" }).click();
+      await page.getByRole("link", { name: "Write a post", exact: true }).click();
       await page.getByLabel("Title").fill(title);
       await page.getByLabel("Body").fill("Published end to end.");
       await page.getByRole("button", { name: "Publish" }).click();
